@@ -11,7 +11,11 @@ Installation
 
 This script requires Python 3. It has been tested with Python 3.13.2
 
-It requires the `requests` extension library. Please checkout here to see how to install it - https://github.com/requests/requests
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
 
 Run
 ---------------------
@@ -20,11 +24,17 @@ Run
 2. Edit `config.json` and fill in your information.
 2. Run `python download.py`
 
+**Options:**
+- `--threads N` - Number of concurrent downloads (default: 1)
+- `--check-etag` - Skip files that already exist with matching ETag and size
+
 All the zone files will be saved in `working-directory`/zonefiles, `working-directory` is specified in `config.json`, 
 or default to current directory if not specified in `config.json`
 
 By default, it will download all the APPOVED zone files. If you only want a subset of the zone files, specify the
 `tlds: []` in the `config.json`. Note: missing `tlds` or empty `[]` means downloadd all the APPROVED zone files.
+
+You can also specify `excluded_tlds: []` in `config.json` to exclude specific TLDs from download.
 
 Documentation
 -------------
